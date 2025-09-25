@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JB Registry Tools</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/registry-table-patch.css" />
+
+  </head>
+  <body>
+    <header>
+      <nav>
+        <strong>JB Intake</strong>
+        <a href="index.html">Single</a>
+        <a href="bulk.html">Bulk</a>
+        <a href="registry.html">Registry</a>
+      </nav>
+    </header>
+
+    <main id="app">
+      <section class="card">
+        <h2>Registry</h2>
+        <div class="grid-2">
+          <label>
+            <span>Search</span>
+            <input id="regSearch" type="text"
+              placeholder="Filter by category/key..." />
+          </label>
+          <label>
+            <span>Category</span>
+            <select id="regSelect"></select>
+          </label>
+        </div>
+
+        <div class="actions"
+          style="margin-top:14px; display:flex; gap:8px; flex-wrap:wrap;">
+          <button id="btnValidate" class="btn-secondary">Validate Row</button>
+          <button id="btnProvision" class="btn-primary">Provision
+            Category</button>
+          <button id="btnProvisionAll" class="btn-danger">Provision ALL</button>
+        </div>
+
+        <div id="schemaPreview" class="card" style="margin-top:14px;"></div>
+
+        <div class="table-wrapper" style="margin-top:14px;">
+          <table id="regTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Key</th>
+                <th>Category</th>
+                <th>Category Target</th>
+                <th>Models Target</th>
+                <th>Review Target</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+
+          <div class="pager" style="margin-top:10px;">
+            <button id="regPrev" class="btn-secondary">Prev</button>
+            <span id="regPageInfo">0–0 / 0</span>
+            <button id="regNext" class="btn-secondary">Next</button>
+          </div>
+        </div>
+
+        <pre id="regLog" style="margin-top:14px;"></pre>
+      </section>
+    </main>
+
+    <script>
+    // Backend base and optional x-api-key for /api/*
+    window.__REGISTRY_PROXY_BASE__ = window.__REGISTRY_PROXY_BASE__ || "http://localhost:5500";
+    window.__REGISTRY_PROXY_KEY__  = window.__REGISTRY_PROXY_KEY__  || "";
+  </script>
+
+    <script src="assets/js/api-gis.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/registry.js"></script>
+  </body>
+</html>

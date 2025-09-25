@@ -1,0 +1,89 @@
+
+/* ==== Registry table polish (drop-in) ==== */
+.table-wrapper {
+  overflow: auto;
+  border: 1px solid #222838;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.25);
+}
+
+#regTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed; /* fix jerky column widths */
+  font-size: 14px;
+  color: var(--fg, #e7e9ee);
+}
+
+#regTable thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: linear-gradient(0deg, rgba(255,255,255,.02), rgba(255,255,255,.06));
+  backdrop-filter: blur(2px);
+  text-align: left;
+}
+
+#regTable th,
+#regTable td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #2a2f3f;
+  vertical-align: middle;
+}
+
+#regTable tbody tr:nth-child(odd)   { background: rgba(255,255,255,.015); }
+#regTable tbody tr:hover            { background: rgba(255,255,255,.03);  }
+
+/* Column widths (stick to your header order) */
+#regTable th:nth-child(1), #regTable td:nth-child(1) { width: 56px;  text-align: center; }
+#regTable th:nth-child(2), #regTable td:nth-child(2) { width: 220px; }
+#regTable th:nth-child(3), #regTable td:nth-child(3) { width: 180px; }
+#regTable th:nth-child(4), #regTable td:nth-child(4) { width: 320px; }
+#regTable th:nth-child(5), #regTable td:nth-child(5) { width: 220px; }
+#regTable th:nth-child(6), #regTable td:nth-child(6) { width: 220px; }
+#regTable th:nth-child(7), #regTable td:nth-child(7) { width: 160px; }
+
+/* Truncate long IDs nicely */
+#regTable td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#regTable td:nth-child(4),
+#regTable td:nth-child(5),
+#regTable td:nth-child(6) {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 12.5px;
+  opacity: .95;
+}
+
+/* Vertical separators for readability */
+#regTable thead th + th { border-left: 1px solid #1c2230; }
+#regTable tbody td + td { border-left: 1px dashed #232a3a; }
+
+/* Actions column: put buttons on one line with spacing */
+#regTable td:last-child { white-space: nowrap; }
+#regTable td:last-child > * {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+#regTable td:last-child .btn,
+#regTable td:last-child button {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #2a2f3f;
+  background: #12151f;
+}
+
+#regTable td:last-child button + button { margin-left: 6px; }
+
+/* Search + Category row alignment */
+.card .grid-2 { display: grid; grid-template-columns: 1fr 280px; gap: 12px; }
+
+/* Pager */
+.pager { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+.pager button { padding: 8px 10px; border-radius: 10px; }

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>JB Intake</title>
+		<link rel="stylesheet" href="assets/style.css" />
+	</head>
+	<body>
+		<header>
+			<nav>
+				<strong>JB Intake</strong>
+				<a href="index.html">Single</a>
+				<a href="bulk.html">Bulk</a>
+				<a href="registry.html">Registry</a>
+			</nav>
+		</header>
+
+		<main class="container">
+			<div id="app">
+				<section class="card">
+					<div class="card__body">
+						<h1>Single Model Intake</h1>
+
+						<div class="form-grid">
+							<label>Manufacturer
+								<input
+									id="manufacturer"
+									type="text"
+									placeholder="e.g., John Deere" />
+							</label>
+
+							<label>Model
+								<input id="model" type="text" placeholder="e.g., 8R 370" />
+							</label>
+
+							<label>Year
+								<input
+									id="year"
+									type="number"
+									inputmode="numeric"
+									placeholder="e.g., 2021" />
+							</label>
+
+							<label>Category
+								<select id="categorySelect">
+									<option disabled selected>Loading...</option>
+								</select>
+							</label>
+
+							<div class="actions">
+								<button id="addBtn" class="btn-primary">Add (TEST)</button>
+								<button id="addProdBtn" class="btn-secondary"
+									style="margin-left:8px">Add Prod</button>
+							</div>
+
+							<!-- ВИДИМЫЕ ЛОГИ -->
+							<div id="status" class="msg" style="margin-top: 8px"></div>
+							<pre id="debug" style="margin-top: 8px"></pre>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+
+		<!-- Бэкенд адрес и (опц.) API-ключ -->
+		<script>
+			window.__REGISTRY_PROXY_BASE__ = 'http://localhost:5500'
+			window.__REGISTRY_PROXY_KEY__ = 'e5362baf-c777-4d57-a609-6eaf1f9e87f6' // если на сервере API_KEY пуст — оставь пусто
+		</script>
+		<!-- новый файл только для Single-страницы -->
+	
+    <script src="assets/js/api-gis.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
