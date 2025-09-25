@@ -1,0 +1,9 @@
+
+# Secrets
+service-account.json
+*.service-account.json
+*.credentials.json
+.env
+.env.*
+*.p12
+*.key
